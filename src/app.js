@@ -17,9 +17,10 @@ const animation = {
         window.addEventListener('resize', e => {
             this.resize();
         }, false)
-        this.asteroides.push(new Asteroide(this, this.colors));
+        for(let i = 0; i < this.nbAsteroides; i++){
+            this.asteroides.push(new Asteroide(this, this.colors));
+        }
         this.animate(); 
-
     },
 
     draw(){
@@ -29,7 +30,7 @@ const animation = {
     },
 
     animate(){ //¨* Pour quand on va faire bouger le truc 
-        this.ctx.clearRect(0, 0, this.canvasEltwidth, this.canvasElt.height);
+        this.ctx.clearRect(0, 0, this.canvasElt.width, this.canvasElt.height);
         this.draw()
         window.requestAnimationFrame( ()=> {
             this.animate(); // les arrow function permettes que le this reste le bon. 
