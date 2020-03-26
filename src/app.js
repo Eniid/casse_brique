@@ -1,5 +1,5 @@
 import Asteroide from "./Asteroide"; 
-
+import Ship from "./Ship"
 
 const animation = {
     canvasElt: undefined, 
@@ -7,6 +7,7 @@ const animation = {
     asteroides: [], //? Tableau dans le quel on doit ajouter les asteroides (crée par le classe asteroide)
     nbAsteroides : 10, 
     colors : ['#EC8900',  '#E7A700', '#5787AB' , '#E7A700'  ],
+    ship : new Ship(),
 
     //* Toutes les propoiétées !! 
     init(){
@@ -27,6 +28,7 @@ const animation = {
         this.asteroides.forEach(asteroide => (
             asteroide.update() 
         ))
+        this.ship
     },
 
     animate(){ //¨* Pour quand on va faire bouger le truc 
