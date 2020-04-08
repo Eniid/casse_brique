@@ -7,7 +7,7 @@ const animation = {
     asteroides: [], //? Tableau dans le quel on doit ajouter les asteroides (crée par le classe asteroide)
     nbAsteroides : 10, 
     colors : ['#EC8900',  '#E7A700', '#5787AB' , '#E7A700'  ],
-    ship : new Ship(),
+    //ship : new Ship(this),
 
     //* Toutes les propoiétées !! 
     init(){
@@ -21,6 +21,7 @@ const animation = {
         for(let i = 0; i < this.nbAsteroides; i++){
             this.asteroides.push(new Asteroide(this, this.colors));
         }
+        this.ship = new Ship(this);
         this.animate(); 
     },
 
@@ -28,7 +29,7 @@ const animation = {
         this.asteroides.forEach(asteroide => (
             asteroide.update() 
         ))
-        this.ship
+        this.ship.update();
     },
 
     animate(){ //¨* Pour quand on va faire bouger le truc 
@@ -40,8 +41,8 @@ const animation = {
     },
 
     resize(){ //* Pour que quand on rezise l'écran, le canvas aussi se resize
-        this.canvasElt.height = window.innerHeight;
-        this.canvasElt.width = window.innerWidth;
+        this.canvasElt.height = 640;
+        this.canvasElt.width = 640;
         
     }
 }
