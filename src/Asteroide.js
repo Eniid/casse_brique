@@ -15,7 +15,6 @@ export default class Asteroide {
         this.speed = Math.floor(Math.random()*2) == 1 ? 1 : -1;
         console.log(this.speed);
     }
-    
 
 
     draw(){         

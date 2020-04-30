@@ -1,11 +1,13 @@
 import Asteroide from "./Asteroide"; 
 import Ship from "./Ship"
+import { controller } from "./controller";
 
 const animation = {
     canvasElt: undefined, 
     ctx: undefined, 
     asteroides: [], //? Tableau dans le quel on doit ajouter les asteroides (crée par le classe asteroide)
     nbAsteroides : 10, 
+    controller,
     colors : ['#EC8900',  '#E7A700', '#5787AB' , '#E7A700'  ],
     //ship : new Ship(this),
 
@@ -15,6 +17,7 @@ const animation = {
         document.body.insertAdjacentElement("afterbegin", this.canvasElt);
         this.ctx = this.canvasElt.getContext('2d'); 
         this.resize(); 
+        this.controller.init(this);
         window.addEventListener('resize', e => {
             this.resize();
         }, false)
