@@ -4,12 +4,22 @@
 }
 
 body {
-    background-color: #162140;
+    background-color: #294b94;
     text-align: center;
-    color: #E7A700;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #ebd0bf;
+    letter-spacing: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 1em;
+    font-weight: lighter;
 }
 
 canvas {
-    border: 1px solid #E7A700;
+    background-color: #fff;
 }
+
 

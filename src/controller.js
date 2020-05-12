@@ -1,9 +1,8 @@
 export const controller = {
-    "allowedKeys":["z", "q", "s", "d", " "],
+    "allowedKeys":["q", "d"],
     "pressedKeys":[],
     init(animation){
         this.animation = animation;
-        console.log("hello")
         window.addEventListener("keydown", e=>{
             const key = e.key;
             if(this.allowedKeys.indexOf(key) != -1){

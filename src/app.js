@@ -1,54 +1,50 @@
-import Asteroide from "./Asteroide"; 
-import Ship from "./Ship"
-import { controller } from "./controller";
+import Bloc from "./Bloc"; 
+import Base from "./Base"; 
+//import { controller } from "./controller";
+
 
 const animation = {
     canvasElt: undefined, 
     ctx: undefined, 
-    asteroides: [], //? Tableau dans le quel on doit ajouter les asteroides (crée par le classe asteroide)
-    nbAsteroides : 10, 
-    controller,
-    colors : ['#EC8900',  '#E7A700', '#5787AB' , '#E7A700'  ],
-    //ship : new Ship(this),
+    blocs: [],
+    blocNb : 1,
+    //controller,
 
-    //* Toutes les propoiétées !! 
+
     init(){
         this.canvasElt = document.createElement("canvas")
-        document.body.insertAdjacentElement("afterbegin", this.canvasElt);
+        document.body.insertAdjacentElement("beforeend", this.canvasElt);
+        this.canvasElt.height = 600;
+        this.canvasElt.width = 800;
         this.ctx = this.canvasElt.getContext('2d'); 
-        this.resize(); 
-        this.controller.init(this);
-        window.addEventListener('resize', e => {
-            this.resize();
-        }, false)
-        for(let i = 0; i < this.nbAsteroides; i++){
-            this.asteroides.push(new Asteroide(this, this.colors));
+
+        // Mon palet pour faire sauter la boulle 
+        this.base = new Base(this);
+
+        // Mes briques à casser <3 
+        for(let i = 0; i < this.blocNb; i++){
+            this.blocs.push(new Bloc(this));
         }
-        this.ship = new Ship(this);
+
         this.animate(); 
     },
 
     draw(){
-        this.asteroides.forEach(asteroide => (
-            asteroide.update() 
+        this.blocs.forEach(bloc => (
+            bloc.update() 
         ))
-        this.ship.update();
+
+        this.base.update();
     },
 
-    animate(){ //¨* Pour quand on va faire bouger le truc 
+    animate(){ 
         this.ctx.clearRect(0, 0, this.canvasElt.width, this.canvasElt.height);
         this.draw()
         window.requestAnimationFrame( ()=> {
-            this.animate(); // les arrow function permettes que le this reste le bon. 
+            this.animate(); 
         });
     },
-
-    resize(){ //* Pour que quand on rezise l'écran, le canvas aussi se resize
-        this.canvasElt.height = 640;
-        this.canvasElt.width = 640;
-        
-    }
 }
 
 
-animation.init() //* Démare toute la classe animation 
+animation.init() 
