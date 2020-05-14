@@ -7,7 +7,7 @@ const animation = {
     canvasElt: undefined, 
     ctx: undefined, 
     blocs: [],
-    blocNb : 1,
+    blocNb : 2,
     //controller,
 
 

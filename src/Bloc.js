@@ -9,6 +9,8 @@ export default class Bloc {
         this.y = 25;
         this.widht = 100;
         this.height = 40;
+
+        this.i = undefined;
     }
 
 
@@ -21,6 +23,9 @@ export default class Bloc {
 
     update(){
 
+        //if(i < 5) {
+          //  this.x = this.i * (1 +150);
+        //}
         this.draw();
     }
 }

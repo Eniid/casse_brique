@@ -9,6 +9,8 @@ export default class Base {
         this.y = this.canvas.height - 25;
         this.widht = 200;
         this.height = 5;
+
+        
     }
 
 
